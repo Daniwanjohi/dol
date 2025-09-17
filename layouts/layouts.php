@@ -1,13 +1,15 @@
 <?php
 
 class layouts{
-    public function heading(){
+    public function heading($conf){
         echo "Welcome to BBIT DevOps!";
     }
-    public function welcome(){
+    public function welcome($conf){
         echo "<p> This is a new semester.</p>";
     }
-    public function footer(){
-        echo "<footer>Contact us at <a href='mailto:info@bbit.edu'</a>info@bbit.edu</footer>";
+    public function footer($conf){
+        echo "<footer>
+        Copyright &copy; ".date("Y") . " " . $conf[site_name] . "
+        <br>Contact us at <a href='mailto:{$conf['email']}'>info@bbit.edu</a></footer>";
     }
 }
