@@ -1,15 +1,15 @@
 <?php
-
 require_once 'conf.php';
 
 $directory = [
     'Layouts',
-    'Forms'
+    'Forms',
+    'Globals',  
 ];
 
 spl_autoload_register(function($className) use ($directory){
     foreach ($directory as $dir){
-        $filepath = __DIR__ . '/' . $DIR . '/' . $className . '.php';  
+        $filePath = __DIR__ . '/' . $dir . '/' . $className . '.php';  
         if (file_exists($filePath)){
             require_once $filePath;
             return;
@@ -18,3 +18,6 @@ spl_autoload_register(function($className) use ($directory){
 });
 
 // Create various instances to test autoloading
+$ObjSendMail = new SendMail();
+$layoutsInstance = new layouts();
+$formsInstance = new forms();
